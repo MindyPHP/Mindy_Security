@@ -15,7 +15,7 @@
 namespace Mindy\Security;
 
 use Mindy\Base\ApplicationComponent;
-use Mindy\Base\Exception\Exception;
+use Mindy\Exception\Exception;
 use Mindy\Base\Mindy;
 
 /**
@@ -122,7 +122,7 @@ class SecurityManager extends ApplicationComponent
             } else {
                 if (($key = $this->generateRandomString(32, true)) === false) {
                     if (($key = $this->generateRandomString(32, false)) === false) {
-                        throw new Exception(Mindy::t('yii', 'CSecurityManager::generateRandomString() cannot generate random string in the current environment.'));
+                        throw new Exception(Mindy::t('base', 'CSecurityManager::generateRandomString() cannot generate random string in the current environment.'));
                     }
                 }
                 $this->setValidationKey($key);
@@ -141,7 +141,7 @@ class SecurityManager extends ApplicationComponent
         if (!empty($value)) {
             $this->_validationKey = $value;
         } else {
-            throw new Exception(Mindy::t('yii', 'CSecurityManager.validationKey cannot be empty.'));
+            throw new Exception(Mindy::t('base', 'CSecurityManager.validationKey cannot be empty.'));
         }
     }
 
@@ -160,7 +160,7 @@ class SecurityManager extends ApplicationComponent
             } else {
                 if (($key = $this->generateRandomString(32, true)) === false) {
                     if (($key = $this->generateRandomString(32, false)) === false) {
-                        throw new Exception(Mindy::t('yii', 'SecurityManager::generateRandomString() cannot generate random string in the current environment.'));
+                        throw new Exception(Mindy::t('base', 'SecurityManager::generateRandomString() cannot generate random string in the current environment.'));
                     }
                 }
                 $this->setEncryptionKey($key);
@@ -179,7 +179,7 @@ class SecurityManager extends ApplicationComponent
         if (!empty($value)) {
             $this->_encryptionKey = $value;
         } else {
-            throw new Exception(Mindy::t('yii', 'CSecurityManager.encryptionKey cannot be empty.'));
+            throw new Exception(Mindy::t('base', 'CSecurityManager.encryptionKey cannot be empty.'));
         }
     }
 
@@ -261,12 +261,12 @@ class SecurityManager extends ApplicationComponent
             }
 
             if ($module === false) {
-                throw new Exception(Mindy::t('yii', 'Failed to initialize the mcrypt module.'));
+                throw new Exception(Mindy::t('base', 'Failed to initialize the mcrypt module.'));
             }
 
             return $module;
         } else {
-            throw new Exception(Mindy::t('yii', 'CSecurityManager requires PHP mcrypt extension to be loaded in order to use data encryption feature.'));
+            throw new Exception(Mindy::t('base', 'CSecurityManager requires PHP mcrypt extension to be loaded in order to use data encryption feature.'));
         }
     }
 
@@ -335,7 +335,7 @@ class SecurityManager extends ApplicationComponent
             $pack = 'H32';
             $func = 'md5';
         } else {
-            throw new Exception(Mindy::t('yii', 'Only SHA1 and MD5 hashing algorithms are supported when using PHP 5.1.1 or below.'));
+            throw new Exception(Mindy::t('base', 'Only SHA1 and MD5 hashing algorithms are supported when using PHP 5.1.1 or below.'));
         }
 
         if ($this->strlen($key) > 64) {
