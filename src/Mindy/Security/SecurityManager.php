@@ -59,7 +59,7 @@ use Mindy\Base\Mindy;
  * @property string $validation
  *
  * @author Qiang Xue <qiang.xue@gmail.com>
- * @package system.base
+ * @package Mindy\Security
  * @since 1.0
  */
 class SecurityManager extends ApplicationComponent
