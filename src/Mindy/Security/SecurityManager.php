@@ -14,9 +14,10 @@
 
 namespace Mindy\Security;
 
-use Mindy\Base\ApplicationComponent;
 use Mindy\Exception\Exception;
 use Mindy\Base\Mindy;
+use Mindy\Helper\Traits\Accessors;
+use Mindy\Helper\Traits\Configurator;
 
 /**
  * This file contains classes implementing security manager feature.
@@ -62,8 +63,10 @@ use Mindy\Base\Mindy;
  * @package Mindy\Security
  * @since 1.0
  */
-class SecurityManager extends ApplicationComponent
+class SecurityManager
 {
+    use Configurator, Accessors;
+
     const STATE_VALIDATION_KEY = 'Yii.CSecurityManager.validationkey';
     const STATE_ENCRYPTION_KEY = 'Yii.CSecurityManager.encryptionkey';
 
@@ -94,7 +97,6 @@ class SecurityManager extends ApplicationComponent
 
     public function init()
     {
-        parent::init();
         $this->_mbstring = extension_loaded('mbstring');
     }
 
