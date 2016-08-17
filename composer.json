@@ -14,9 +14,7 @@
   },
   "require": {
     "php": ">=5.6",
-    "mindy/base": "*",
-    "mindy/helper": "*",
-    "mindy/exception": "*"
+    "mindy/helper": "*"
   },
   "require-dev": {
     "phpunit/phpunit": "*",
